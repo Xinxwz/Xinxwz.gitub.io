@@ -1,0 +1,599 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>A-感恩日记</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><p><span>#3-0生活/3-1记录 </span></p><p><span>2022-06-26</span></p><p><span>今天是6.26礼拜天，在水心聚会，我感谢神，让我有机会能到水心聚会，听到信息。</span></p><p><span>回想我这段时间，我觉得好像被安排似的，6月初，何波叔叔问我们，6月底要不要留下来大学生聚会。本来我没有什么感觉，但是后来他说你们如果没有被提，可以回一下消息吗？</span></p><p><span>我没有看到后面的消息，只看到了前面的被提，看到时我的心咚——了一下，我以为被提已经开始了，我是被留下的人，一种恐慌害怕流淌在我心里，有点魂不守舍，所以，后面我马上回了消息说我留下。</span></p><p><span>昨天，从宿管阿姨那里得知，我们可以留到7-4号，蓝杨晗问中介可不可以晚几天去，说不行，最迟6.28，没有办法，我们就只能早搬出寝室了。大学生营会6-30（周四）----7-3，我们的专升本是7-6开始，怎么说，这些的时间都没有交叉，感恩都能赶上。</span></p><p><span>还有一个是今天在水心聚会，让我的压力没有很大，躲在一个看不见的角落，很有安全感，可能主也知道我的情况。</span></p><p><span>早上弟兄的信息是为何哭?</span>
+<span>	</span><span>为自己哭</span>
+<span>	</span><span>为儿女哭（用泪水浇灌的孩子是不会枯萎的）</span>
+<span>下午弟兄的信息是在启示的光中生活</span>
+<span>	</span><span>讲了几个见证，一些弟兄姊妹单纯爱主的心</span></p><p><span>听了信息后，我好像有了在人认罪的力量，我想要将我的事情坦白，我好羡慕别人与神的关系，对于认罪我好像还是在害怕，害怕被弃，害怕自己被赦免后仍旧犯罪……</span></p><p><span>无论情况如何，我不过是人，愿主来带领。</span></p><hr /><p><span>2022-07-03</span></p><p><span>今天已经是七月八号，回看这几天，实在觉得神奇妙的带领，我想把一整个事情的经过记录下来。</span></p><p><span>六月初，何波叔叔在群里问有没有人要参加七月初的大学生营会，因为，我们不常回消息，所以叔叔说你们被提了吗，不回消息，但是我只看到了你们被提了吗。看到这个，我心里极其害怕，因我以为，被提已经开始，或者快要开始，主来的日子近了，再不悔改就要灭亡了，实在害怕被丢在地狱里面。就马上回答说：我留下。</span></p><p><span>一直到七月初聚会开始，以往的罪犯一直控告抓住我，在聚会期间达到了顶峰，实在没有这样难受过，极其渴望得到释放，于是希望回家认罪，请求教会祷告的意念一直在我的脑海里面，因为惧怕周日的掰饼聚会，害怕又只有我没有参与，在聚会的第二天下午我买了一张回家的车票逃回家了。</span></p><p><span>到了第二天，就是礼拜天了，我很希望有年长点姊妹们能够注意到我，问问我你怎么了，这样，我或许就有了认罪的力量，但是没有……我心里很失望，想着白回家了，我的问题不能解决了，我要灭亡了，很难受。直到聚会结束。</span></p><p><span>聚会结束回家，我很困，不是很舒服，但是，和以往聚会回家就睡觉不同，我想做些什么，于是帮妈妈做家务，或者整理一些的东西。期间会有一些的聊天，聊着聊着就说到了妈妈认识主的经历，我问妈妈，什么时候有被释放的感觉，具体情况我已经忘记了，但在妈妈爱的包容中，我向妈妈坦白了一切，即便坦白了，我心里仍旧害怕，害怕神不赦免我，因为我这样堕落败坏，得罪神。之后，妈妈向我说了一些的事，在听妈妈说的过程中，我里面的重担，好像脱落了。罪真的不能再控告我了。以往的罪行，好像已经从我的记忆中抹去一样，只留下淡淡的痕迹，我的心通了。我知道主赦免我了，但是我并没有喜乐与感恩，我不知道这是为什么。</span></p><p><span>第二天，我想找李翠说一下这事，下午我就去找她，和他说了很多，从中午一直聊到了傍晚，她说了许多主在他身上的奇妙带领，非常羡慕，她与主之间有许多的故事，我希望在我的身上也能发生神奇妙的带领，让我与主之间也能有许多，只有我们的事。</span></p><p><span>没有喜乐，她说因为神给每个人的带领是不同的。</span></p><p><span>当天，晚上就去找了老弟兄，他为我祷告，为我写介绍信，这样我的事就圆满结束了，我终于能纪念主了。</span></p><p><span>现在回想，真是主奇妙的带领，好像缺一环，我的问题好像都不能解决，神不误事，因他是神。</span></p><hr /><p><span>2022-07-08</span></p><p><span>昨天，学习英语让我非常的沮丧，因为不会，导致我不想学，学英语很挫败，很抵触，到了晚上要听写，听写更是难受，不想听，也听不好。</span></p><p><span>晚自习结束回家，我就躺在了床上，圣经不想看，书籍不想看，澡不想洗，衣服不想洗，真的什么都不想做，在这样的情况下，好像开始怀疑神，是不是救我？后来好像因为什么，就拿起kindle，搜索需要，选了一本书《你需要重生》 躺在床上看……</span></p><p><span>后来，很颓败，失落的，说算了，祷告吧，想睡觉了。就去祷告，这次祷告和以往不同，第一次祷告选了一首诗歌，这诗歌是上次营会发现的，我很喜欢它的旋律、转音，很好听，但是我不会唱，就打开手机诗歌本，听了好几遍，直到会唱一点点，就开始祷告。</span></p><p><span>祷告结束后，好像有了一点的力量，就是不愿意颓败了，想要改变，就浅浅整理一下，看了一章圣经，睡觉了。</span></p><p><span>晚上睡的不是很稳，很浅，浅到醒的时候，就祷告说，让我睡一个好觉，又觉得，睡一个好觉也是需要感恩的。</span></p><p><span>今天好像发现，原来，我忧愁是因为看自己，没有仰望神。</span></p><hr /><p><span>2022-07-17</span></p><p><span>今天又是主日，中午的饭仍旧很香很好吃，在神的家中能够吃饱，吃的香，这是一个人和室友在温州租房的一个很美的记忆。</span></p><p><span>早上去聚会，我害怕，没有钥匙不知道怎么进去，以往我都是会遇到和我一起的，他们为我开门，我跟着进去。</span></p><p><span>但是这次我没有遇到，我一面祷告一面在等同行人，不一会儿，来了一个陌生的人，他也没有钥匙，打算按门铃，后面紧随着一个胖胖的女孩（上周聚会我看见过她），她好像知道我们都是同路人似的，说钥匙在后面，边说边给我们拿，开了门后，又有一扇门，胖胖的女孩说我不知道密码，陌生男孩说123456，这样我才知道我们是同路人，男孩试着想要输入密码，但不知道从何处输入，于是我打开了密码盖，方便男孩输入密码，就这样我们成功进入了聚会处。</span></p><p><span>我们三个人好像都是来聚会的小白新手，彼此配搭完成一同进入聚会点的场所。只因为我们都是神家里的人，并非因为外貌，学历，知识……</span></p><p><span>在聚会之前我向神祈求让我能参与到神的家里面。当经历这样的事后，深觉得奇妙，与感恩。</span></p><p><span>愿我更多经历神的丰富与慈爱公义，与神之间有更多美好的故事发生，愿神的自己更多启示在我里面，好让我完全以神的名得到荣耀而活，愿神的杖与竿都管教引导我，好让我不行在正直的路上，不偏离左右，珍重持守所得的长子名分，直到主的再来。</span></p><hr /><p><span>2022-07-24</span></p><p><span>今天又是主日，在主日的前一天，是周六，那天正好是空的一天，早上我写完了数学习题，对了一会儿答案，不想对了，很难受，不想学习，就玩起了手机，刷微博刷着刷着看到了一部剧就想看了，就看了一直看到下午，下午看完又觉得累了，就睡觉，睡醒后又刷手机，我不知何时，手机里的小红书又被下了回来。到了晚上大概九十点，我感觉眼睛难受，不舒服，就下放下手机，但是不知不觉又拿了起来，我心想不对，不对不对，我不能这样的被辖制，我要到主耶稣那里去，就去那个祷告的房间祷告。感谢主，当祷告结束后，好像能放下手机了，求主将警醒的心放在我的里面，让我对罪有感觉，对不讨主喜悦的事有感觉，跌倒了能有一点点的力量来到主面前，仰望恩主的怜悯。</span></p><p><span>主日，我安排好要做鹰嘴豆粉奶，当我做好之后打算把他们装到大铁碗里，不小心手滑，做的东西全撒了，我心想，出现问题解决它就是了，后来想起来，虽然手滑但是没有把电煮锅滑到地上摔坏，造成更大的损失，感恩。在收拾擦台面的时候，想着算了，我就买早餐把，来不及了。</span></p><p><span>到了我素常买早餐的店，点了一份素常的早餐——鸡蛋豆浆，店员把他们用小小塑料袋装好，我收下，把他们挂在自行车的右把手上，出发去聚会，因为时间快来不及了，一路的赶，当我经过一个上坡准备往下冲的时候，小塑料袋里的豆浆，鸡蛋飞了出去，早餐又没有了。</span></p><p><span>但是没有关系，我想到聚会处附近还有一家早餐店，我就去那里买吧，到了那早餐店，我又买了一个鸡蛋一瓶奶，4.5元，蛮贵的，我边走边吃，当我打算吃鸡蛋的时候，手又滑了，蛋摔在了地上，这个时候，我苦笑不得，今天早上是怎么了嘛，怎么好像运气很不好的样子，我并不知道原因，或许是因为，我太过急躁，匆忙，以至于没有很细心……</span></p><p><span>与这三件事相反的事是在我去聚会的路上，因着时间实在来不及，快八点了一路狂骑，主恩待我，让我一路遇到的基本上都是绿灯，让我不至于太迟到聚会处。</span></p><p><span>这几件事，虽然只有一点点主同在的影子，但我的身上能与主有故事的发生，让我觉得很美好，我希望对主能有更多认识，能有数不尽的恩典发生在我身上。</span></p><hr /><p><span>2022-07-31</span></p><p><span>今天又是主日，前几天，何波叔叔和我说，水心因为一些的环境暂时，暂停了，这周在农贸，又是一个对我来说相对新的地方，我以为这个地方来了有几次了，也已经熟悉了。早上骑着单车来到了这里，虽然找到了地方，但是忘记了楼层，我上了两层，那个地方有一个十字架贴着，不是我所熟悉的十字架贴，犹豫了一会儿，在上了一层楼，看到了一个熟悉的十字架，在我的记忆中，聚会的地方门好像是在右边，怎么在左边呢？我在心里诧异，又在心里说，主啊，我该怎么办，我不敢敲门，心想算了，还是等那个在楼下吃早餐的弟兄吧，没一会儿，我豆浆还没有喝完，门就为我开了。</span></p><p><span>我惊了，四周浅看了一下，也没有别人了呀，就我一个，我也没有敲门啊，怎么弟兄好像知道有人在门口似的就突然开了门？</span></p><p><span>我曾经幻想过很多次，很多次，主，借着某个人，来帮助我，单单的只帮助我，今天好像实现了。</span></p><p><span>第一次，感觉到这样明确的，专指向我的事。</span></p><p><span>在纪念主时，我的思想很纠结，我不知道该用什么话祷告好，该用什么话来纪念主好，因为他们都好会祷告，直到最后，有一段时间的沉默，我起来祷告了，第一次的纪念祷告。</span></p><p><span>之后，有弟兄讲信息说我们带着伪装，我们好像知道该用什么话让人觉得受感动，让我觉得有点对，让我觉得自己不太会祷告好像还有点骄傲，只要真实的光景，于是，在结束祷告的时候，我又偏向了另一个极端……感谢主，让我觉察到了，这样不对的光景。</span></p><p><span>上午聚会结束后，我在思想一个问题，讲台(这周（讲神的殿—圣殿—教会—个人身体）,作用，重要性，危机等)的信息，如何成为生命的实际，而不仅仅是一篇讲章，如何成为一周生活的力量……</span></p><p><span>目前我还不知道答案，只有寻求主……</span></p><hr /><p><span>2022-08-07</span></p><p><span>今天又是主日，因为有了更多的时间，我可以写一些什么东西，回想一下，主的恩典。这一周，有几件让我蛮感恩的事，第一件，我在某一天问姚思琴他的科目一什么时候考试，因为之前，他考科目一失败了两次，发在了朋友圈，本着关心一下的想法，就问了他，下一次什么时候考试，她说这周五，好快呀，发现她和罗惠是一起的，我就把他们一起放在祷告的当中，到了周五，我回家的路上，想到他们今天考试了，就问他们怎么样，他们都过了。感谢主，这是我们之间与主的故事，不再是我们听长辈讲述，而是我们亲身经历，感恩。</span></p><p><span>有些时候，仍旧会对主的爱有点的怀疑，因为这是我最敏感的神经，一触即倒，不能起来，但是这样的情况好像在好转，虽然好像是在黑夜，我看不见大光，但是主的恩典犹如星光点点，不至于让我觉得绝望。这也是恩典，今天，听弟兄讲了一个弟兄写的一首诗歌，虽有晴天，但常是阴天，叫我学习忍耐。在黑夜里，仰望那位，看不见的主。</span></p><p><span>我的心在此等候，为要认识你，为要见你。</span></p><hr /><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></div></div>
+</body>
+</html>
